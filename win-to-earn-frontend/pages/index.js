@@ -2,7 +2,7 @@ import Head from "next/head";
 
 // import ManualHeader from "../components/ManualHeader";
 import Header from "../components/Header";
-import Timer from "../components/Timer.js";
+import CandyCrush from "../components/CandyCrush";
 import LotteryEntrance from "../components/LotteryEntrance";
 import styles from "../styles/Home.module.css";
 
@@ -21,7 +21,8 @@ export default function Home() {
 			<Header />
 			{/* <Timer /> */}
 			<LotteryEntrance />
-			<div>sup</div>
+			<CandyCrush />
+			{/* <div>sup</div> */}
 		</div>
 	);
 }
