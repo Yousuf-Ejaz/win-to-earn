@@ -28,6 +28,7 @@ contract Game is KeeperCompatibleInterface {
     uint256 private immutable i_entranceFee;
     address payable[] private s_players;
     mapping(address => uint) public s_scores;
+    uint256 private s_flag;
 
     // Lottery Variables
     address private s_recentWinner;
@@ -44,6 +45,7 @@ contract Game is KeeperCompatibleInterface {
         s_gameState = GameState.OPEN;
         s_lastTimeStamp = block.timestamp;
         i_interval = interval;
+        s_flag = 0;
     }
 
     // Functions
@@ -113,6 +115,7 @@ contract Game is KeeperCompatibleInterface {
         }
 
         s_gameState = GameState.CALCULATING;
+        s_flag = 1 - s_flag;
         getWinner();
     }
 
@@ -143,6 +146,10 @@ contract Game is KeeperCompatibleInterface {
 
     function getLatestTimeStamp() public view returns (uint256) {
         return s_lastTimeStamp;
+    }
+
+    function getFlag() public view returns (uint256) {
+        return s_flag;
     }
 
     function getScore(address _addr) public view returns (uint) {

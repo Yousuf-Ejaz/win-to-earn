@@ -4,6 +4,7 @@ import { useMoralis } from "react-moralis";
 import { useEffect, useState } from "react";
 import { ethers } from "ethers";
 import { useNotification } from "web3uikit";
+import Timer from "./Timer";
 
 function LotteryEntrance() {
 	const { chainId: chainIdHex, isWeb3Enabled } = useMoralis();
@@ -81,6 +82,7 @@ function LotteryEntrance() {
 			Hi from Game Entrance!
 			{gameAddress ? (
 				<div>
+					<Timer />
 					<button
 						className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
 						onClick={async function () {
